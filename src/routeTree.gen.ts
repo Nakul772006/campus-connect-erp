@@ -9,38 +9,285 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedTimetableRouteImport } from './routes/_authenticated/timetable'
+import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
+import { Route as AuthenticatedNoticesRouteImport } from './routes/_authenticated/notices'
+import { Route as AuthenticatedMarksRouteImport } from './routes/_authenticated/marks'
+import { Route as AuthenticatedFeesRouteImport } from './routes/_authenticated/fees'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedAttendanceRouteImport } from './routes/_authenticated/attendance'
+import { Route as AuthenticatedAdminTimetableRouteImport } from './routes/_authenticated/admin/timetable'
+import { Route as AuthenticatedAdminStudentsRouteImport } from './routes/_authenticated/admin/students'
+import { Route as AuthenticatedAdminNoticesRouteImport } from './routes/_authenticated/admin/notices'
+import { Route as AuthenticatedAdminMarksRouteImport } from './routes/_authenticated/admin/marks'
+import { Route as AuthenticatedAdminAttendanceRouteImport } from './routes/_authenticated/admin/attendance'
 
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRoute = AuthenticatedRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedTimetableRoute = AuthenticatedTimetableRouteImport.update({
+  id: '/timetable',
+  path: '/timetable',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedNoticesRoute = AuthenticatedNoticesRouteImport.update({
+  id: '/notices',
+  path: '/notices',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedMarksRoute = AuthenticatedMarksRouteImport.update({
+  id: '/marks',
+  path: '/marks',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedFeesRoute = AuthenticatedFeesRouteImport.update({
+  id: '/fees',
+  path: '/fees',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedAttendanceRoute = AuthenticatedAttendanceRouteImport.update({
+  id: '/attendance',
+  path: '/attendance',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedAdminTimetableRoute =
+  AuthenticatedAdminTimetableRouteImport.update({
+    id: '/admin/timetable',
+    path: '/admin/timetable',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedAdminStudentsRoute =
+  AuthenticatedAdminStudentsRouteImport.update({
+    id: '/admin/students',
+    path: '/admin/students',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedAdminNoticesRoute =
+  AuthenticatedAdminNoticesRouteImport.update({
+    id: '/admin/notices',
+    path: '/admin/notices',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
+const AuthenticatedAdminMarksRoute = AuthenticatedAdminMarksRouteImport.update({
+  id: '/admin/marks',
+  path: '/admin/marks',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedAdminAttendanceRoute =
+  AuthenticatedAdminAttendanceRouteImport.update({
+    id: '/admin/attendance',
+    path: '/admin/attendance',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/signup': typeof SignupRoute
+  '/attendance': typeof AuthenticatedAttendanceRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/fees': typeof AuthenticatedFeesRoute
+  '/marks': typeof AuthenticatedMarksRoute
+  '/notices': typeof AuthenticatedNoticesRoute
+  '/profile': typeof AuthenticatedProfileRoute
+  '/timetable': typeof AuthenticatedTimetableRoute
+  '/admin/attendance': typeof AuthenticatedAdminAttendanceRoute
+  '/admin/marks': typeof AuthenticatedAdminMarksRoute
+  '/admin/notices': typeof AuthenticatedAdminNoticesRoute
+  '/admin/students': typeof AuthenticatedAdminStudentsRoute
+  '/admin/timetable': typeof AuthenticatedAdminTimetableRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/signup': typeof SignupRoute
+  '/attendance': typeof AuthenticatedAttendanceRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/fees': typeof AuthenticatedFeesRoute
+  '/marks': typeof AuthenticatedMarksRoute
+  '/notices': typeof AuthenticatedNoticesRoute
+  '/profile': typeof AuthenticatedProfileRoute
+  '/timetable': typeof AuthenticatedTimetableRoute
+  '/admin/attendance': typeof AuthenticatedAdminAttendanceRoute
+  '/admin/marks': typeof AuthenticatedAdminMarksRoute
+  '/admin/notices': typeof AuthenticatedAdminNoticesRoute
+  '/admin/students': typeof AuthenticatedAdminStudentsRoute
+  '/admin/timetable': typeof AuthenticatedAdminTimetableRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteWithChildren
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/signup': typeof SignupRoute
+  '/_authenticated/attendance': typeof AuthenticatedAttendanceRoute
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/fees': typeof AuthenticatedFeesRoute
+  '/_authenticated/marks': typeof AuthenticatedMarksRoute
+  '/_authenticated/notices': typeof AuthenticatedNoticesRoute
+  '/_authenticated/profile': typeof AuthenticatedProfileRoute
+  '/_authenticated/timetable': typeof AuthenticatedTimetableRoute
+  '/_authenticated/admin/attendance': typeof AuthenticatedAdminAttendanceRoute
+  '/_authenticated/admin/marks': typeof AuthenticatedAdminMarksRoute
+  '/_authenticated/admin/notices': typeof AuthenticatedAdminNoticesRoute
+  '/_authenticated/admin/students': typeof AuthenticatedAdminStudentsRoute
+  '/_authenticated/admin/timetable': typeof AuthenticatedAdminTimetableRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/forgot-password'
+    | '/login'
+    | '/reset-password'
+    | '/signup'
+    | '/attendance'
+    | '/dashboard'
+    | '/fees'
+    | '/marks'
+    | '/notices'
+    | '/profile'
+    | '/timetable'
+    | '/admin/attendance'
+    | '/admin/marks'
+    | '/admin/notices'
+    | '/admin/students'
+    | '/admin/timetable'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/forgot-password'
+    | '/login'
+    | '/reset-password'
+    | '/signup'
+    | '/attendance'
+    | '/dashboard'
+    | '/fees'
+    | '/marks'
+    | '/notices'
+    | '/profile'
+    | '/timetable'
+    | '/admin/attendance'
+    | '/admin/marks'
+    | '/admin/notices'
+    | '/admin/students'
+    | '/admin/timetable'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/forgot-password'
+    | '/login'
+    | '/reset-password'
+    | '/signup'
+    | '/_authenticated/attendance'
+    | '/_authenticated/dashboard'
+    | '/_authenticated/fees'
+    | '/_authenticated/marks'
+    | '/_authenticated/notices'
+    | '/_authenticated/profile'
+    | '/_authenticated/timetable'
+    | '/_authenticated/admin/attendance'
+    | '/_authenticated/admin/marks'
+    | '/_authenticated/admin/notices'
+    | '/_authenticated/admin/students'
+    | '/_authenticated/admin/timetable'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
+  LoginRoute: typeof LoginRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
+  SignupRoute: typeof SignupRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +295,134 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/timetable': {
+      id: '/_authenticated/timetable'
+      path: '/timetable'
+      fullPath: '/timetable'
+      preLoaderRoute: typeof AuthenticatedTimetableRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/profile': {
+      id: '/_authenticated/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AuthenticatedProfileRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/notices': {
+      id: '/_authenticated/notices'
+      path: '/notices'
+      fullPath: '/notices'
+      preLoaderRoute: typeof AuthenticatedNoticesRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/marks': {
+      id: '/_authenticated/marks'
+      path: '/marks'
+      fullPath: '/marks'
+      preLoaderRoute: typeof AuthenticatedMarksRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/fees': {
+      id: '/_authenticated/fees'
+      path: '/fees'
+      fullPath: '/fees'
+      preLoaderRoute: typeof AuthenticatedFeesRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/attendance': {
+      id: '/_authenticated/attendance'
+      path: '/attendance'
+      fullPath: '/attendance'
+      preLoaderRoute: typeof AuthenticatedAttendanceRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/admin/timetable': {
+      id: '/_authenticated/admin/timetable'
+      path: '/admin/timetable'
+      fullPath: '/admin/timetable'
+      preLoaderRoute: typeof AuthenticatedAdminTimetableRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/admin/students': {
+      id: '/_authenticated/admin/students'
+      path: '/admin/students'
+      fullPath: '/admin/students'
+      preLoaderRoute: typeof AuthenticatedAdminStudentsRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/admin/notices': {
+      id: '/_authenticated/admin/notices'
+      path: '/admin/notices'
+      fullPath: '/admin/notices'
+      preLoaderRoute: typeof AuthenticatedAdminNoticesRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/admin/marks': {
+      id: '/_authenticated/admin/marks'
+      path: '/admin/marks'
+      fullPath: '/admin/marks'
+      preLoaderRoute: typeof AuthenticatedAdminMarksRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/admin/attendance': {
+      id: '/_authenticated/admin/attendance'
+      path: '/admin/attendance'
+      fullPath: '/admin/attendance'
+      preLoaderRoute: typeof AuthenticatedAdminAttendanceRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
   }
 }
 
+interface AuthenticatedRouteChildren {
+  AuthenticatedAttendanceRoute: typeof AuthenticatedAttendanceRoute
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedFeesRoute: typeof AuthenticatedFeesRoute
+  AuthenticatedMarksRoute: typeof AuthenticatedMarksRoute
+  AuthenticatedNoticesRoute: typeof AuthenticatedNoticesRoute
+  AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
+  AuthenticatedTimetableRoute: typeof AuthenticatedTimetableRoute
+  AuthenticatedAdminAttendanceRoute: typeof AuthenticatedAdminAttendanceRoute
+  AuthenticatedAdminMarksRoute: typeof AuthenticatedAdminMarksRoute
+  AuthenticatedAdminNoticesRoute: typeof AuthenticatedAdminNoticesRoute
+  AuthenticatedAdminStudentsRoute: typeof AuthenticatedAdminStudentsRoute
+  AuthenticatedAdminTimetableRoute: typeof AuthenticatedAdminTimetableRoute
+}
+
+const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
+  AuthenticatedAttendanceRoute: AuthenticatedAttendanceRoute,
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedFeesRoute: AuthenticatedFeesRoute,
+  AuthenticatedMarksRoute: AuthenticatedMarksRoute,
+  AuthenticatedNoticesRoute: AuthenticatedNoticesRoute,
+  AuthenticatedProfileRoute: AuthenticatedProfileRoute,
+  AuthenticatedTimetableRoute: AuthenticatedTimetableRoute,
+  AuthenticatedAdminAttendanceRoute: AuthenticatedAdminAttendanceRoute,
+  AuthenticatedAdminMarksRoute: AuthenticatedAdminMarksRoute,
+  AuthenticatedAdminNoticesRoute: AuthenticatedAdminNoticesRoute,
+  AuthenticatedAdminStudentsRoute: AuthenticatedAdminStudentsRoute,
+  AuthenticatedAdminTimetableRoute: AuthenticatedAdminTimetableRoute,
+}
+
+const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
+  AuthenticatedRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRoute: AuthenticatedRouteWithChildren,
+  ForgotPasswordRoute: ForgotPasswordRoute,
+  LoginRoute: LoginRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
+  SignupRoute: SignupRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
